@@ -1,0 +1,1 @@
+## This is a Seed project for Typescript,React,and ES6.

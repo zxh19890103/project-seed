@@ -1,0 +1,33 @@
+{
+  "name": "project-seed",
+  "version": "1.0.0",
+  "description": "Seed of project development env, including Typescript、React and ES6.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zxh19890103/project-seed.git"
+  },
+  "keywords": [
+    "project",
+    "seed",
+    "cli",
+    "typescript",
+    "react",
+    "es6"
+  ],
+  "author": "Singhi John",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zxh19890103/project-seed/issues"
+  },
+  "homepage": "https://github.com/zxh19890103/project-seed#readme",
+  "devDependencies": {
+    "ts-loader": "^5.3.0",
+    "typescript": "^3.1.6",
+    "webpack": "^4.26.0"
+  }
+}
