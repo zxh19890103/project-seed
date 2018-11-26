@@ -17,7 +17,7 @@ class E {
                 if (TAGS.indexOf(prop) > -1) {
                     this.current = this.firstChild(prop)
                     return this.Q
-                } else if (/^i\d$/.test(prop)) {
+                } else if (/^i[1-9]$/.test(prop)) {
                     this.current = this.nSibling(Number(prop[1]))
                     return this.Q
                 }
@@ -28,16 +28,16 @@ class E {
     }
 
     private nSibling(n: number): Element {
-        if (n === 0) return this.current
-        let sibling = null, i = 0, MAX = 10
-        while (sibling = this.current.nextElementSibling) {
-            if (!sibling) break
+        let sibling = this.current, i = 0, safe = 0
+        while (sibling = sibling.nextElementSibling) {
             if (sibling.nodeName === this.current.nodeName) {
                 i ++
+                if (i === n) return sibling
             }
-            if (i === n || i === MAX) break
+            safe ++
+            if (safe === 68) break
         }
-        return sibling
+        return null
     }
 
     private firstChild(tag: string) : Element {
@@ -56,4 +56,6 @@ class E {
 
 const q = new E(appDiv).Q
 console.log(q.h3.span.i.value)
-console.log(q.div.i2.value)
+console.log(q.div.n(2).value) // index like div:eq(N)
+console.log(q.div.class('.i').value)
+console.log(q.div.value)
