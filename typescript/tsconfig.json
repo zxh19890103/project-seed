@@ -1,10 +1,17 @@
 {
+    "compileOnSave": false,
     "compilerOptions": {
         "outDir": "./dist/",
         "noImplicitAny": true,
-        "module": "es6",
         "target": "es6",
-        "allowJs": true
+        "allowJs": true,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "traceResolution": true,
+        "baseUrl": "src/",
+        "paths": {
+        }
     },
     "exclude": [
         "./webpack.config.js"
