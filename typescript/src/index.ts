@@ -1,13 +1,20 @@
 const appDiv = document.querySelector('#app')
 
+import './body.less'
+import './style.scss'
+
 import TAGS from './tags'
 import { PropType } from './PropType.enum'
-import './rtc'
+import './Bird'
+
+import './farmer.jpg'
+
+const ioAsync = import(/* webpackChunkName: "sock" */'socket.io-client')
 
 interface IQuery {
-    div: IQuery,
-    n: (idx: number) => IQuery,
-    id: (value: string) => IQuery
+  div: IQuery,
+  n: (idx: number) => IQuery,
+  id: (value: string) => IQuery
 }
 
 /**
@@ -57,70 +64,47 @@ class E {
     }
 
     private getPropType(prop: string): PropType {
-        if (TAGS.indexOf(prop) > -1) {
-            return PropType.Tag
-        } else if (prop === 'n' || prop === 'id') {
-            return PropType.Query
-        } else {
-            return PropType.Value
-        }
+      if (TAGS.indexOf(prop) > -1) {
+        return PropType.Tag
+      } else if (prop === 'n' || prop === 'id') {
+        return PropType.Query
+      } else {
+        return PropType.Value
+      }
     }
 
     private nSibling(n: number): Element {
-        let sibling = this.current, i = 0, safe = 0
-        while (sibling = sibling.nextElementSibling) {
-            if (sibling.nodeName === this.current.nodeName) {
-                i ++
-                if (i === n)
-                    return sibling
-            }
-            safe ++
-            if (safe === 68) break
+      let sibling = this.current, i = 0, safe = 0
+      while (sibling = sibling.nextElementSibling) {
+        if (sibling.nodeName === this.current.nodeName) {
+          i ++
+          if (i === n)
+            return sibling
         }
-        return null
+        safe ++
+        if (safe === 68) break
+      }
+      return null
     }
 
     private firstChild(tag: string): Element {
-        const entry = this.current.childNodes.entries()
-        let res
-        while ((res = entry.next())) {
-            if (res.done) break
-            const [i, n] = res.value
-            if (n.nodeType === 1 && n.nodeName === tag.toUpperCase()) {
-                return n as Element
-            }
+      const entry = this.current.childNodes.entries()
+      let res
+      while ((res = entry.next())) {
+          if (res.done) break
+          const [i, n] = res.value
+          if (n.nodeType === 1 && n.nodeName === tag.toUpperCase()) {
+            return n as Element
+          }
         }
-        return null
+      return null
     }
 }
 
 const q = new E(appDiv).Q
 
-const ws = new WebSocket('ws://121.40.165.18:8800')
-
-ws.onopen = (ev) => {
-    console.info('open')
-    ws.send('Hello')
+if (module.hot) {
+  module.hot.accept(['./Bird', './Animal'], () => {
+    console.log('Accepting Good!')
+   })
 }
-
-ws.onerror = (ev) => {
-    console.info('error')
-}
-
-ws.onclose = (ev) => {
-    console.info('close')
-}
-
-ws.onmessage = (msg) => {
-    console.info('message')
-    const div = document.createElement('div')
-    div.innerHTML = msg.data
-    div.style.border = '1px solid #ddd'
-    div.style.margin = '6px 8px'
-    div.style.padding = '8px'
-    document.body.appendChild(div)
-    // console.info(msg.data)
-}
-// ws.send()
-
-ws.close()

@@ -1,16 +1,14 @@
-import * as io from 'socket.io-client'
+import './Bird'
 
 class Animal {
-    public roar() {
-        const what: string = 'I am an Animal.'
-        console.log(what)
-    }
+  public roar() {
+    const what: string = 'I am an Animal.'
+    console.log(what)
+  }
 }
 
-const socket = io('ws://localhost:443')
-
-socket.open()
+new Animal().roar()
 
 export {
-    Animal,
+  Animal,
 }

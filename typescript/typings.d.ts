@@ -1,7 +1,10 @@
 /* SystemJS module definition */
 declare var module: NodeModule
 interface NodeModule {
-  id: string
+  id: string,
+  hot: {
+    accept: (module: string[], fn: () => void) => void
+  }
 }
 
 interface WebpackRequire {
@@ -11,3 +14,14 @@ interface WebpackRequire {
 }
 interface NodeRequire extends WebpackRequire { }
 declare var require: NodeRequire
+declare var __PRODUCTION__: boolean
+
+declare module "*.svg" {
+  const content: any
+  export default content
+}
+
+declare module "*.json" {
+  const content: any
+  export default content
+}

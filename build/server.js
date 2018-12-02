@@ -1,17 +1,22 @@
 const webpack = require('webpack')
 const webpackDevServer = require('webpack-dev-server')
-
-const config = require('../typescript/webpack.config')
-
+const config = require('../typescript/webpack.dev.config')
 const compiler = webpack(config)
+const chalk = require('chalk').default
+const cfg = require('./config').dev
 
 const server = new webpackDevServer(compiler, {
-    historyApiFallback: true,
-    contentBase: [ config.output.path, './assets' ],
-    stats: {
-        colors: true
-    }
+  historyApiFallback: true,
+  hot: true,
+  hotOnly: true,
+  inline: true,
+  contentBase: [ config.output.path, ...cfg.assets ],
+  stats: {
+    colors: true
+  },
+  quiet: true,
+  open: true
 })
-server.listen(9002, '127.0.0.1', () => {
-    console.log('Starting server on http://localhost:9002')
+server.listen(cfg.port, cfg.host, () => {
+  console.log(chalk.green(`Starting server on http://${cfg.host}:${cfg.port}`))
 })

@@ -1,19 +1,22 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "outDir": "./dist/",
-        "noImplicitAny": true,
-        "target": "es6",
-        "allowJs": true,
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "traceResolution": true,
-        "baseUrl": "src/",
-        "paths": {
-        }
-    },
-    "exclude": [
-        "./webpack.config.js"
-    ]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "target": "es6",
+    "module": "esnext",
+    "alwaysStrict": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@nm": [ "../../node_modules" ]
+    }
+  },
+  "exclude": [
+    "./webpack.*.config.js"
+  ]
 }

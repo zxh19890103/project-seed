@@ -1,9 +1,9 @@
 enum PropType {
-    Tag = 1,
-    Value,
-    Query,
+  Tag = 1,
+  Value,
+  Query,
 }
 
 export {
-    PropType,
+  PropType,
 }
