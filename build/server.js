@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const webpackDevServer = require('webpack-dev-server')
-const config = require('../typescript/webpack.dev.config')
+const config = require(`${process.cwd()}/webpack.dev.config`)
 const compiler = webpack(config)
 const chalk = require('chalk').default
 const cfg = require('./config').dev

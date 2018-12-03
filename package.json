@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node ./build/index.js",
-    "start": "node ./build/server.js",
+    "dp": "cd design-patterns && node ./dev.js",
+    "ts": "cd typescript && node ./dev.js",
+    "react": "cd react && node ./dev.js",
     "tslint": "tslint -p ./typescript/tsconfig.json -c ./typescript/tslint.json"
   },
   "repository": {

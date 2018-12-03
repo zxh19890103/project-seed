@@ -18,6 +18,6 @@
   },
   "exclude": [
     "./webpack.*.config.js",
-    "dev.js"
+    "./dev.js"
   ]
 }

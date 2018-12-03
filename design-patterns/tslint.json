@@ -1,0 +1,31 @@
+{
+  "extends": "tslint:recommended",
+  "rulesDirectory": [],
+  "rules": {
+    "switch-final-break": {
+      "options": "always",
+      "severity": "error"
+    },
+    "no-any": true,
+    "switch-default": true,
+    "semicolon": {
+      "options": "never"
+    },
+    "quotemark": {
+      "options": "single",
+      "severity": "warning"
+    },
+    "ordered-imports": false,
+    "no-console":{
+      "options": ["log"],
+      "severity": "warning"
+    } ,
+    "one-variable-per-declaration": false,
+    "no-conditional-assignment": false,
+    "curly": false,
+    "no-empty": {
+      "severity": "warning"
+    },
+    "no-var-requires": false
+  }
+}
