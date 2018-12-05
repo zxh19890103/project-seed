@@ -15,7 +15,7 @@ const server = new webpackDevServer(compiler, {
     colors: true
   },
   quiet: true,
-  open: true
+  open: true,
 })
 server.listen(cfg.port, cfg.host, () => {
   console.log(chalk.green(`Starting server on http://${cfg.host}:${cfg.port}`))
