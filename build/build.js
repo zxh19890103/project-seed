@@ -1,7 +1,7 @@
 'use strict'
 
 const webpack = require('webpack')
-const webpackCfg = require(`${process.cwd()}/webpack.prod.config`)
+const webpackCfg = require(`./webpack.prod.config`)
 const ora = require('ora')
 const chalk = require('chalk').default
 

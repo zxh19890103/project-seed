@@ -7,20 +7,22 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 
+const util = require('./util')
+
 module.exports = {
-  context: __dirname,
+  context: util.resolve(),
   entry: {
     app: './src/index.ts'
   },
   output: {
     filename: "[name].[hash:7].js",
-    path: path.resolve(__dirname, 'dist')
+    path: util.resolve('./dist')
   },
   resolve: {
     extensions: [ '.ts', '.tsx', '.js' ],
     plugins: [
       new TsconfigPathsPlugin({
-        configFile: path.resolve(__dirname, './tsconfig.json')
+        configFile: util.resolve('./tsconfig.json')
       })
     ]
   },
@@ -43,7 +45,14 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               presets: [
-                [ '@babel/preset-env', { targets: { browsers: [ 'last 2 versions', 'safari >= 7' ] } } ]
+                [
+                  '@babel/preset-env',
+                  {
+                    targets: {
+                      browsers: [ 'last 2 versions', 'safari >= 7' ]
+                    }
+                  }
+                ]
               ],
               plugins: [ '@babel/plugin-transform-runtime', '@babel/plugin-syntax-dynamic-import' ]
             }
@@ -52,7 +61,7 @@ module.exports = {
             loader: 'ts-loader',
             options: {
               transpileOnly: true,
-              context: __dirname,
+              context: util.resolve(),
               happyPackMode: true
             }
           }
@@ -85,7 +94,9 @@ module.exports = {
       template: './index.html',
       filename: 'index.html'
     }),
-    new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true }),
+    new ForkTsCheckerWebpackPlugin({
+      checkSyntacticErrors: true
+    }),
     new ManifestPlugin()
   ]
 }

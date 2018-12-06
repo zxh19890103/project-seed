@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const webpackDevServer = require('webpack-dev-server')
-const config = require(`${process.cwd()}/webpack.dev.config`)
+const config = require(`./webpack.dev.config`)
 const compiler = webpack(config)
 const chalk = require('chalk').default
 const cfg = require('./config').dev
@@ -14,7 +14,7 @@ const server = new webpackDevServer(compiler, {
   stats: {
     colors: true
   },
-  quiet: true,
+  quiet: false,
   open: true,
 })
 server.listen(cfg.port, cfg.host, () => {

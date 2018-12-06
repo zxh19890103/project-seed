@@ -3,7 +3,7 @@
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const config = require('./webpack.base.config')
-const cfg = require('../build/config').dev
+const cfg = require('./config').dev
 
 module.exports = merge(config, {
   mode: 'development',
