@@ -54,7 +54,10 @@ module.exports = {
                   }
                 ]
               ],
-              plugins: [ '@babel/plugin-transform-runtime', '@babel/plugin-syntax-dynamic-import' ]
+              plugins: [
+                '@babel/plugin-transform-runtime',
+                '@babel/plugin-syntax-dynamic-import'
+              ]
             }
           },
           {
@@ -62,7 +65,7 @@ module.exports = {
             options: {
               transpileOnly: true,
               context: util.resolve(),
-              happyPackMode: true
+              happyPackMode: true,
             }
           }
         ],
