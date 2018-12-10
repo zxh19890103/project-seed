@@ -7,3 +7,7 @@ body {
   top: 120px;
   left: 445px;
 }
+
+li[data-active] {
+  border: 1px solid sandybrown;
+}

@@ -5,13 +5,15 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "target": "es6",
-    "module": "esnext",
+    "module": "es6",
     "alwaysStrict": true,
     "allowJs": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "baseUrl": "./src",
+    "noUnusedParameters": false,
+    "allowSyntheticDefaultImports": true,
     "paths": {
       "@nm": [ "../../node_modules" ]
     }

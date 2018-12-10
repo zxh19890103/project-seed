@@ -6,7 +6,7 @@
       "options": "always",
       "severity": "error"
     },
-    "no-any": true,
+    "no-any": false,
     "switch-default": true,
     "semicolon": {
       "options": "never"
@@ -26,6 +26,8 @@
     "no-empty": {
       "severity": "warning"
     },
-    "no-var-requires": false
+    "no-var-requires": false,
+    "member-access": false,
+    "no-unused-expression": false
   }
 }
