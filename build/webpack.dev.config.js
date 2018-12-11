@@ -3,6 +3,7 @@
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const config = require('./webpack.base.config')
+const mergeConfig = require(`${process.cwd()}/webpack.dev.config.js`)
 const cfg = require('./config').dev
 
 module.exports = merge(config, {
@@ -41,7 +42,7 @@ module.exports = merge(config, {
       __PRODUCTION__: JSON.stringify(false),
     })
   ]
-})
+}, mergeConfig)
 
 Object.keys(module.exports.entry).forEach((name => {
   const entry = module.exports.entry[name]

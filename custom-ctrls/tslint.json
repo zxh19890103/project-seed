@@ -28,6 +28,8 @@
     },
     "no-var-requires": false,
     "member-access": false,
-    "no-unused-expression": false
+    "no-unused-expression": false,
+    "arrow-parens": false,
+    "max-line-length": false
   }
 }

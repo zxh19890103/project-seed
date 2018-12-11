@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const config = require('./webpack.base.config')
+const mergeConfig = require(`${process.cwd()}/webpack.prod.config.js`)
 
 module.exports = merge(config, {
   mode: 'production',
@@ -74,4 +75,4 @@ module.exports = merge(config, {
       }
     }
   }
-})
+}, mergeConfig)

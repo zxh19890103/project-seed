@@ -1,0 +1,1 @@
+export default `<div class="singhi-spinner"><div class="singhi-spinner__rect singhi-spinner__rect1"></div><div class="singhi-spinner__rect singhi-spinner__rect2"></div><div class="singhi-spinner__rect singhi-spinner__rect3"></div><div class="singhi-spinner__rect singhi-spinner__rect4"></div><div class="singhi-spinner__rect singhi-spinner__rect5"></div></div>`
