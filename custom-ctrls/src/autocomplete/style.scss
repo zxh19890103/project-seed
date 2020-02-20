@@ -92,3 +92,18 @@
     animation-delay: -0.8s;
   }
 }
+
+.button {
+  position: absolute;
+  top: 200px;
+  left: 300px;
+}
+
+.dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  z-index: 1;
+}

@@ -3,8 +3,10 @@
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const config = require('./webpack.base.config')
-const mergeConfig = require(`${process.cwd()}/webpack.dev.config.js`)
 const cfg = require('./config').dev
+
+const util = require('./util')
+const mergeConfig = util.requireIfExisting(`${process.cwd()}/webpack.dev.config.js`)
 
 module.exports = merge(config, {
   mode: 'development',

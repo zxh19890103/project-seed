@@ -1,6 +1,7 @@
 'use strict'
 
-const path = require('path')
+// const path = require('path')
+const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
@@ -8,8 +9,9 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 
 const util = require('./util')
+const mergeConfig = util.requireIfExisting(`${process.cwd()}/webpack.base.js`)
 
-module.exports = {
+module.exports = merge({
   context: util.resolve(),
   entry: {
     app: './src/index.ts'
@@ -19,7 +21,7 @@ module.exports = {
     path: util.resolve('./dist')
   },
   resolve: {
-    extensions: [ '.ts', '.tsx', '.js' ],
+    extensions: [ '.ts', '.tsx', '.js', '.jsx' ],
     plugins: [
       new TsconfigPathsPlugin({
         configFile: util.resolve('./tsconfig.json')
@@ -102,4 +104,5 @@ module.exports = {
     }),
     new ManifestPlugin()
   ]
-}
+}, mergeConfig)
+
